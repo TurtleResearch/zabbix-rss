@@ -1,0 +1,23 @@
+$def with (records, date)
+<rss version="2.0">
+   <channel>
+      <title>Zabbix RSS Feed</title>
+      <description>Zabbix event flow.</description>
+      <language>en-us</language>
+      <pubDate>$date</pubDate>
+
+      <lastbuilddate>$date</lastbuilddate>
+      <generator>zabbix_rss</generator>
+      <managingeditor>null</managingeditor>
+      <webmaster>null</webmaster>
+
+      $for record in records:
+          <item>
+             <title> $record.title </title>
+             <link> $record.link </link>
+             <description>$record.body</description>
+             <pubDate> $record.date </pubDate>
+             <guid> $record.link </guid>
+          </item>
+    </channel>
+</rss>
