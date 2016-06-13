@@ -56,7 +56,7 @@ def makeRecord(zabbix, event):
     except Exception, e:
         print str(e)
         return None
-    return Record(title, body, link, datetime.fromtimestamp(float(event["clock"])), event["eventid"])
+    return Record(title, body, link, datetime.utcfromtimestamp(float(event["clock"])), event["eventid"])
 
 
 class root:
